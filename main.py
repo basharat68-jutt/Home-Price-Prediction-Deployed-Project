@@ -3,8 +3,9 @@ import pandas as pd
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 from typing import Annotated, Literal
+from fastapi.middleware.cors import CORSMiddleware
 
-model = joblib.load('House_Price_Prediction.pkl')
+model = joblib.load('house_price_prediction.pkl')
 
 top_cities = ['Shoreline',
  'Seattle',
@@ -22,6 +23,14 @@ top_cities = ['Shoreline',
 
 
 app = FastAPI()
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 #Pydantic Model
 class dict(BaseModel):
