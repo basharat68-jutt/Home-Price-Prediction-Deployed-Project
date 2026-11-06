@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102a43">
+  <title>HouseWise | House Price Predictor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">⌂</span><span>House<span class="brand-accent">Wise</span></span></a>
+    <span class="top-note"><span class="live-dot"></span> AI-powered property estimate</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">SMARTER PROPERTY DECISIONS</p>
+        <h1>Discover what your<br><span>home could be worth.</span></h1>
+        <p class="hero-description">Enter your property's details and get an estimated market price powered by a machine-learning model.</p>
+        <div class="hero-points">
+          <span><span class="check">✓</span> Quick estimate</span>
+          <span><span class="check">✓</span> Property-focused insights</span>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="sun"></div>
+        <div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+        <div class="house-illustration">
+          <div class="roof"></div>
+          <div class="house-body">
+            <div class="window window-left"></div><div class="window window-right"></div>
+            <div class="door"></div>
+          </div>
+        </div>
+        <div class="tree tree-left"><i></i></div><div class="tree tree-right"><i></i></div>
+        <div class="ground"></div>
+        <div class="art-label"><span>⌂</span> Your next move starts here</div>
+      </div>
+    </section>
+
+    <section class="form-card">
+      <div class="form-heading">
+        <div>
+          <p class="eyebrow">PROPERTY DETAILS</p>
+          <h2>Tell us about the house</h2>
+          <p class="muted">Complete the fields below to calculate an estimated price.</p>
+        </div>
+        <div class="step-badge">01 <span>/</span> PROPERTY</div>
+      </div>
+
+      <form id="predictionForm">
+        <div class="section-label"><span class="section-icon">⌂</span><div><h3>Home features</h3><p>Size, rooms and overall condition</p></div></div>
+        <div class="form-grid">
+          <label>Bedrooms <input type="number" name="bedrooms" min="0" step="0.5" value="3" required><small>Number of bedrooms</small></label>
+          <label>Bathrooms <input type="number" name="bathrooms" min="0" step="0.5" value="2" required><small>Number of bathrooms</small></label>
+          <label>Living area (sq ft) <input type="number" name="sqft_living" min="1" step="1" placeholder="e.g. 1850" required><small>Interior living space</small></label>
+          <label>Lot area (sq ft) <input type="number" name="sqft_lot" min="1" step="1" placeholder="e.g. 35868" required><small>Total land area</small></label>
+          <label>Number of floors <input type="number" name="floors" min="1" step="0.5" value="1" required><small>For example: 1, 1.5 or 2</small></label>
+          <label>House condition <select name="condition" required><option value="3" selected>3 — Average</option><option value="1">1 — Poor</option><option value="2">2 — Fair</option><option value="4">4 — Good</option><option value="5">5 — Very good</option></select><small>Condition rating from 1 to 5</small></label>
+          <label>Above-ground area (sq ft) <input type="number" name="sqft_above" min="1" step="1" placeholder="e.g. 1450" required><small>Area above ground level</small></label>
+          <label>Basement area (sq ft) <input type="number" name="sqft_basement" min="0" step="1" value="0" required><small>Enter 0 if there is no basement</small></label>
+        </div>
+
+        <div class="section-label section-spaced"><span class="section-icon">✦</span><div><h3>Property highlights</h3><p>Views and waterfront access</p></div></div>
+        <div class="form-grid two-col">
+          <label>Waterfront property
+            <select name="waterfront" required><option value="0" selected>No</option><option value="1">Yes</option></select>
+            <small>Is the house beside a waterfront?</small>
+          </label>
+          <label>Has a view
+            <select name="view" required><option value="0" selected>No</option><option value="1">Yes</option></select>
+            <small>Does the property have a notable view?</small>
+          </label>
+        </div>
+
+        <div class="section-label section-spaced"><span class="section-icon">◷</span><div><h3>Build & renovation</h3><p>Construction history of the property</p></div></div>
+        <div class="form-grid two-col">
+          <label>Year built <input type="number" name="yr_built" min="1800" max="2026" placeholder="e.g. 1998" required><small>Original construction year</small></label>
+          <label>Year renovated <input type="number" name="yr_renovated" min="1800" max="2026" placeholder="Use build year if never renovated" required><small>If not renovated, enter the year built</small></label>
+        </div>
+
+        <div class="section-label section-spaced"><span class="section-icon">⌖</span><div><h3>Location</h3><p>Where is this property located?</p></div></div>
+        <div class="form-grid two-col">
+          <label>City
+            <select name="city" required>
+              <option value="Seattle" selected>Seattle</option><option value="Shoreline">Shoreline</option><option value="Kent">Kent</option><option value="Bellevue">Bellevue</option><option value="Redmond">Redmond</option><option value="Sammamish">Sammamish</option><option value="Auburn">Auburn</option><option value="Federal Way">Federal Way</option><option value="Kirkland">Kirkland</option><option value="Issaquah">Issaquah</option><option value="Woodinville">Woodinville</option><option value="Renton">Renton</option><option value="Other">Other</option>
+            </select><small>Select the city where the house is located</small>
+          </label>
+          <label>State & ZIP code <input type="text" name="statezip" placeholder="e.g. WA 98133" maxlength="20" required><small>Use the format shown in the example</small></label>
+        </div>
+
+        <div class="form-actions">
+          <p><span class="secure-icon">✓</span> Your property details are used to generate this estimate.</p>
+          <button type="submit" id="submitBtn"><span>Estimate house price</span><span class="button-arrow">→</span></button>
+        </div>
+      </form>
+
+      <div class="loading hidden" id="loading"><span class="spinner"></span><div><strong>Analysing your property...</strong><small>Preparing your estimated house price</small></div></div>
+      <div class="result hidden" id="result" aria-live="polite">
+        <div class="result-icon">⌂</div><div><p class="result-kicker">ESTIMATED PROPERTY PRICE</p><h2 id="priceValue">$0</h2><p class="result-note">This is a model-generated estimate, not a formal property valuation.</p></div>
+        <button type="button" id="resetBtn" class="reset-btn">New estimate ↻</button>
+      </div>
+      <div class="error hidden" id="errorBox" role="alert"></div>
+    </section>
+    <p class="disclaimer">HouseWise · House Price Prediction · Estimates depend on the information entered and the model's training data.</p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
