@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 from typing import Annotated, Literal
 from fastapi.middleware.cors import CORSMiddleware
 
-model = joblib.load('house_price_prediction.pkl')
+model = joblib.load('House_Price_Prediction.pkl')
 
 top_cities = ['Shoreline',
  'Seattle',
