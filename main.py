@@ -4,16 +4,22 @@ from fastapi import FastAPI
 from pydantic import BaseModel, Field
 from typing import Annotated, Literal
 from fastapi.middleware.cors import CORSMiddleware
-import os
+from pathlib import Path
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# main.py ka folder locate karega
+BASE_DIR = Path(__file__).resolve().parent
 
-model_path = os.path.join(
-    BASE_DIR,
-    "House_Price_Prediction.pkl"
-)
+# Model file ka complete path
+MODEL_PATH = BASE_DIR / "House_Price_Prediction.pkl"
 
-model = joblib.load(model_path)
+# Check karega ke file available hai ya nahi
+if not MODEL_PATH.is_file():
+    raise FileNotFoundError(
+        f"Model file not found: {MODEL_PATH}"
+    )
+
+# Model load karega
+model = joblib.load(MODEL_PATH)
 
 top_cities = ['Shoreline',
  'Seattle',
