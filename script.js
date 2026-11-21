@@ -1,6 +1,5 @@
 // Keep this URL pointed at your running FastAPI backend.
-//const API_URL = "http://127.0.0.1:8000/predict";
-const API_URL = "home-price-prediction-deployed-proj-eight.vercel.app";
+const API_URL = "http://127.0.0.1:8000/predict";
 
 const form = document.getElementById("predictionForm");
 const submitBtn = document.getElementById("submitBtn");

@@ -4,8 +4,16 @@ from fastapi import FastAPI
 from pydantic import BaseModel, Field
 from typing import Annotated, Literal
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
-model = joblib.load('House_Price_Prediction.pkl')
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model_path = os.path.join(
+    BASE_DIR,
+    "House_Price_Prediction.pkl"
+)
+
+model = joblib.load(model_path)
 
 top_cities = ['Shoreline',
  'Seattle',
