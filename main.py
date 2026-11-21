@@ -10,7 +10,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
 
 # Model file ka complete path
-MODEL_PATH = BASE_DIR / "House_Price_Prediction.pkl"
+MODEL_PATH = BASE_DIR / "House_price_prediction.pkl"
 
 # Check karega ke file available hai ya nahi
 if not MODEL_PATH.is_file():
