@@ -1,5 +1,5 @@
 // Keep this URL pointed at your running FastAPI backend.
-const API_URL = "https://home-price-prediction-deployed-proj-murex.vercel.app/predict";
+const API_URL = "https://home-price-prediction-deployed-proj.vercel.app/predict";
 
 const form = document.getElementById("predictionForm");
 const submitBtn = document.getElementById("submitBtn");
